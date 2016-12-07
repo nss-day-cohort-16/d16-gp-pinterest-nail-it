@@ -26,7 +26,7 @@ app.controller('loginCtrl', function($scope, AuthFactory, $window){
 		.then( (user) => {
 			$window.location.href = "#/items/list"; 
 					console.log('user logged out');
-				})
+				});
 			};
 
 		

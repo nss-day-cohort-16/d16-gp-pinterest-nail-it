@@ -1,6 +1,6 @@
 "use strict"; 
 
-var app = angular.module("nailIt", []); 
+var app = angular.module("nailIt", ["ngRoute"]); 
 
 app.run (($location, fbCreds) => {
 	let creds = fbCreds; 
@@ -10,3 +10,4 @@ app.run (($location, fbCreds) => {
 	}; 
 	firebase.initializeApp(authConfig); 
 }); 
+
