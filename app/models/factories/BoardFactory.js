@@ -3,7 +3,7 @@ app.factory("BoardFactory", function ($http, fbCreds ) {
 
 	let postNewBoard = (boardObject) => {
 		return new Promise( (resolve, reject) => {
-			$http.post(`${fbCreds.URL}/boards.json`, angular.toJson(boardObject))
+			$http.post(`${fbCreds.databaseURL}/boards.json`, angular.toJson(boardObject))
 			.success((boardObject) => {
 				resolve(boardObject);
 			})
@@ -14,6 +14,24 @@ app.factory("BoardFactory", function ($http, fbCreds ) {
 		}); 
 
 	};
+
+	let getAllBoards = function () {
+
+		let boards = [];
+    	return new Promise((resolve, reject) => {
+    		$http.get(`${fbCreds.databaseURL}/boards.json`)
+    		.success((boardObject) => {
+    			let boardCollection = boardObject;
+    			Object.keys(boardCollection).forEach((key => {
+    				boardCollection[key].id = key;
+    				boards.push(boardCollection[key]);
+    			}));
+    			resolve(boards);
+    		}).error((error) => {
+    			reject(error);
+    		});
+    	});
+    };
 
 
 

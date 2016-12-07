@@ -1,24 +1,23 @@
 "use strict";
 
-app.controller("newBoardCtrl", function($scope, AuthFactory, BoardFactory) {
+app.controller("newBoardCtrl", function($scope, AuthFactory, $location, BoardFactory) {
 	$scope.btnText = "Create Board";
-
-	$scope.createBoard =  function () {
-		let boardObject = {
-			uid: AuthFactory.getUser(),
+let cool = AuthFactory.getUser(); 
+	
+		$scope.boardObject = {
+			uid: cool,
 			Title: null,
 			Description: null
 		};
-		console.log("made a board mom~");
-		$scope.apply();
-		return boardObject;
-	};
+
+
 
 	$scope.addBoard = function () {
-		 BoardFactory.postNewBoard($scope.createBoard)
+		console.log('scope.boardObj', $scope.boardObject);
+		 BoardFactory.postNewBoard($scope.boardObject)
         .then((response) => {
-        	$location.url("/items/list");
-        	$scope.$apply();
+        	$location.url('#/allBoards');
+        	
         });
 	};
 });

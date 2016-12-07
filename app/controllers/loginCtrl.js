@@ -6,6 +6,15 @@ app.controller('loginCtrl', function($scope, AuthFactory, $window){
 		password: "" //could also be null
 	};
 
+	// let currentUser= null; 
+
+	// let createUser = function(userObj) {
+	// 	return firebase.auth().createUserWithEmailAndPassword(userObj.email, userObj.password);
+
+	// };
+
+	
+
 	$scope.register = () => {
 		AuthFactory.createUser($scope.account)
 		.then( (userData) => {
@@ -13,7 +22,8 @@ app.controller('loginCtrl', function($scope, AuthFactory, $window){
 			console.log("user registered"); 
 		});
 	};
-	$scope.login = () => {
+	$scope.login = (user) => {
+		// currentUser = user.uid;
 		AuthFactory.loginUser($scope.account)
 		.then( (user) => {
 			$window.location.href = "#/items/list"; 
