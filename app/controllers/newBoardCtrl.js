@@ -16,7 +16,7 @@ let cool = AuthFactory.getUser();
 		console.log('scope.boardObj', $scope.boardObject);
 		 BoardFactory.postNewBoard($scope.boardObject)
         .then((response) => {
-        	$location.url('#/allBoards');
+        	$location.url('/allBoards');
         	
         });
 	};

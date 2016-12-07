@@ -35,5 +35,5 @@ app.factory("BoardFactory", function ($http, fbCreds ) {
 
 
 
-	return {postNewBoard};
+	return {postNewBoard, getAllBoards};
 });

@@ -26,11 +26,12 @@ app.controller('loginCtrl', function($scope, AuthFactory, $window){
 		// currentUser = user.uid;
 		AuthFactory.loginUser($scope.account)
 		.then( (user) => {
-			$window.location.href = "#/items/list"; 
-					console.log('user logged in');
+			$window.location.href = "#/allBoards"; 
+					console.log('user logged in', user);
 
 
 		});
+	};
 		$scope.logout = () => {
 		AuthFactory.logoutUser($scope.account)
 		.then( (user) => {
@@ -42,5 +43,4 @@ app.controller('loginCtrl', function($scope, AuthFactory, $window){
 		
 
 
-	};
-}); 
+	}); 

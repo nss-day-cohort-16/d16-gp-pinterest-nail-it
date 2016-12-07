@@ -15,14 +15,19 @@ app.run (($location, fbCreds) => {
 
 app.config( function($routeProvider) {
 	$routeProvider
+	.when('/', { 
+		templateUrl: 'view/partials/login.html',
+		controller: 'loginCtrl'
+
+	})
 	.when('/login', {
 		templateUrl: 'view/partials/login.html',
 		controller: 'loginCtrl'
-	})
+	})	
 	.when('/allBoards', {
 		templateUrl: 'view/partials/allBoards.html',
-		controller: 'allBoards.Ctrl'
+		controller: 'allBoardsCtrl'
 	})
-	.otherwise('/login');
+	.otherwise('/allBoards');
 
 });
