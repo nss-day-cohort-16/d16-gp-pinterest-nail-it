@@ -1,29 +1,34 @@
 <section ng-controller="allBoardsCtrl">
+  <h2>All of Your Awesome Boards</h2>
 	<div ng-repeat="board in boards">
-		<p>{{board.Title}}</p>
+		<a ng-href="#/board/{{board.id}}">{{board.Title}}</a>
 		<p>{{board.id}}</p>
 
 
 
 	</div>
 
-  <div ng-controller="pinCtrl">
-  <h1>{{title}}</h1>
-  <form>
-    <div class="form-group">
-      <label> Title</label>
-      <!-- TODO: Hook up this form to our JS for submitting -->
-      <input type="text" class="form-control" placeholder="Board Title" ng-model="pinObject.title"/>
-    </div>
-    <div class="form-group">
-      <label>Sweet Pic</label>
-      <input type="text" class="form-control" placeholder="01/12/17" ng-model="pinObject.image"/>
-    </div>
+<div ng-controller="newBoardCtrl">
+<h1>Add a New Board</h1>
+<h2>{{title}}</h2>
+<form>
+  <div class="form-group">
+    <label> Title </label>
+    <!-- TODO: Hook up this form to our JS for submitting -->
+    <input type="text" class="form-control" placeholder="Board Title" ng-model="boardObject.Title"/>
+  </div>
+  <div class="form-group">
+    <label>Description</label>
+    <input type="text" class="form-control" placeholder="01/12/17" ng-model="boardObject.Description"/>
+  </div>
 
-    <button class="btn btn-default" ng-click="addPin()">{{nailBtn}}</button>
-  </form>
+  <button class="btn btn-default" ng-click="addBoard()">{{btnText}}</button>
+</form>
+
 
 </div>
+
+
 
 
 </section>

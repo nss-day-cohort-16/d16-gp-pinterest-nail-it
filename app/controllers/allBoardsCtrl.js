@@ -1,8 +1,8 @@
 "use strict";
-app.controller("allBoardsCtrl", function ($scope, $http, BoardFactory ) {
+app.controller("allBoardsCtrl", function ($scope, $http, DataFactory ) {
 
 
-	 BoardFactory.getAllBoards()
+	 DataFactory.getAllBoards()
     .then( (boardArray) => {
         $scope.boards = boardArray;
         $scope.$apply();
