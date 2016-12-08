@@ -5,6 +5,7 @@ app.factory("BoardFactory", function ($http, fbCreds ) {
 		return new Promise( (resolve, reject) => {
 			$http.post(`${fbCreds.databaseURL}/boards.json`, angular.toJson(boardObject))
 			.success((boardObject) => {
+				boardObject.id = boardObject.name;
 				resolve(boardObject);
 			})
 		

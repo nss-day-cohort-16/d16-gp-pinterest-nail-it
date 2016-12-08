@@ -28,6 +28,10 @@ app.config( function($routeProvider) {
 		templateUrl: 'view/partials/allBoards.html',
 		controller: 'allBoardsCtrl'
 	})
+	// .when('/allBoards', {
+	// 	templateUrl: 'view/partials/newBoard.html',
+	// 	controller: 'newBoardCtrl'
+	// })
 	.otherwise('/allBoards');
 
 });

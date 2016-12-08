@@ -27,7 +27,7 @@ app.controller('loginCtrl', function($scope, AuthFactory, $window){
 		AuthFactory.loginUser($scope.account)
 		.then( (user) => {
 			$window.location.href = "#/allBoards"; 
-					console.log('user logged in', user);
+					console.log('user logged in', user.uid);
 
 
 		});

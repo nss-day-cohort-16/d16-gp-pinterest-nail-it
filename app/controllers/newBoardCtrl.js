@@ -5,7 +5,7 @@ app.controller("newBoardCtrl", function($scope, AuthFactory, $location, BoardFac
 let cool = AuthFactory.getUser(); 
 	
 		$scope.boardObject = {
-			uid: cool,
+			uid: null,
 			Title: null,
 			Description: null
 		};
@@ -13,7 +13,7 @@ let cool = AuthFactory.getUser();
 
 
 	$scope.addBoard = function () {
-		console.log('scope.boardObj', $scope.boardObject);
+		// console.log('scope.boardObj', uid);
 		 BoardFactory.postNewBoard($scope.boardObject)
         .then((response) => {
         	$location.url('/allBoards');
