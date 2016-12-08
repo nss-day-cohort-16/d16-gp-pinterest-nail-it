@@ -1,5 +1,5 @@
 <div ng-controller="pinCtrl">
-<h1>{{title}}</h1>
+<h1>{{pinObject.title}}</h1>
 <form>
   <div class="form-group">
     <label> Title</label>
@@ -10,7 +10,7 @@
     <label>Sweet Pic</label>
     <input type="text" class="form-control" placeholder="01/12/17" ng-model="pinObject.image"/>
   </div>
-  
+
   <button class="btn btn-default" ng-click="addPin()">{{nailBtn}}</button>
 </form>
 

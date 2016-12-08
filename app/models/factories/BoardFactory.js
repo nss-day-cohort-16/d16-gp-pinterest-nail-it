@@ -8,11 +8,11 @@ app.factory("BoardFactory", function ($http, fbCreds ) {
 				boardObject.id = boardObject.name;
 				resolve(boardObject);
 			})
-		
+
 		.error( (error) => {
 			reject(error);
+		  });
 		});
-		}); 
 
 	};
 

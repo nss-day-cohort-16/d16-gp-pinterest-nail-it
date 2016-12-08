@@ -6,22 +6,16 @@ let postNewPin = (pinObject) => {
 		return new Promise( (resolve, reject) => {
 			$http.post(`${fbCreds.databaseURL}/pins.json`, angular.toJson(pinObject))
 			.success((pinObject) => {
-				let pinId = pinObject.name;
-				$http.put(`${fbCreds.databaseURL}/pins/${pinId}.json`, pinObject)
-				resolve(pinObject);
+				resolve();
 			})
-		
 		.error( (error) => {
 			reject(error);
+		  });
 		});
-		}); 
-
 	};
 
 
-
-
-let getAllPins = () => {
+let getAllPins = (pinId) => {
 	let pins = [];
 
 	return new Promise((resolve, reject) => {
@@ -31,11 +25,17 @@ let getAllPins = () => {
     			Object.keys(pinCollection).forEach((key => {
     				pinCollection[key].id = key;
     				pins.push(pinCollection[key]);
-    			}));
-    			resolve(pins);
+    			}))
+    			.resolve(pins);
     		}).error((error) => {
     			reject(error);
     		});
     	});
     };
+
+return { getAllPins, postNewPin};
 });
+
+
+
+

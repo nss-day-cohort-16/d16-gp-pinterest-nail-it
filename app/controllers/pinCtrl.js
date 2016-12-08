@@ -2,7 +2,7 @@
 
 app.controller("pinCtrl", function($scope, AuthFactory, $location, PinFactory) {
 	$scope.nailBtn = "Nail It!";
-	let pinUser = AuthFactory.getUser();
+	// let pinUser = AuthFactory.getUser();
 
 	$scope.pinObject = {
 		title: "",
@@ -15,6 +15,7 @@ app.controller("pinCtrl", function($scope, AuthFactory, $location, PinFactory) {
 		console.log("uid", $scope.pinObject);
 		PinFactory.postNewPin($scope.pinObject)
 		.then((response) => {
+
 			$location.url('/allBoards');
 		});
 	};

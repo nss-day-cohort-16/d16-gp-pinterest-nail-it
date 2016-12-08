@@ -7,4 +7,4 @@ app.controller("allBoardsCtrl", function ($scope, $http, BoardFactory ) {
         $scope.boards = boardArray;
         $scope.$apply();
     });
-})
+});

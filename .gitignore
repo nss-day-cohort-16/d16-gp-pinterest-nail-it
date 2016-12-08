@@ -1,4 +1,4 @@
 .DS_Store
 lib/node_modules
 model/data/values
-app/auth/fb-creds.js 
+app/models/values/fb-creds.js
