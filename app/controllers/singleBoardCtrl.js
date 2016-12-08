@@ -7,5 +7,5 @@ app.controller("singleBoardCtrl", function(DataFactory, $scope, $routeParams) {
     boardId: $routeParams.boardId,
     title: "",
     image: ""
-  }
-})
+  };
+});
